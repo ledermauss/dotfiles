@@ -1,24 +1,27 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 " set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-call vundle#rc()
+call vundle#begin()
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
-Plugin 'gmarik/vundle'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
+Plugin 'craigemery/vim-autotag'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'majutsushi/tagbar'
+" Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
 
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
 " Plugin 'Buffergator'
 Plugin 'vimwiki'	
-
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 
@@ -34,12 +37,23 @@ set softtabstop=0
 " Al indentar con >, usar x espacios
 set shiftwidth=8
 " Tabulaciones como 1 caracter  o espacios (noexpandtab = caracter)
-set noexpandtab
+set expandtab
+set autoindent
 
-" let macvim_skip_colorscheme=1
+"Tagbar. Enseña las funciones del archivo como un ide
+nmap <F8> :TagbarToggle<CR>
+
+" PYTHON
+" au BufNewFile *.py
+"         \ set tabstop=4
+"         \ set softtabstop=4
+"         \ set shiftwidth=4
+"         \ set expandtab
+"         \ set autoindent
+
 " Para powerline:
-set guifont=Inconsolata\ for\ Powerline:h14
-let g:Powerline_symbols = 'fancy'
+" set guifont=Inconsolata\ for\ Powerline:h14
+" let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
@@ -47,16 +61,13 @@ set term=xterm-256color
 set termencoding=utf-8
 set laststatus=2
 set ruler
-colorscheme solarized
+" colorscheme solarized
 set background=dark
-" estas dos son para el teclado externo. El segundo caso si tengo block mayus
-" mapeado al mayúscula
-inoremap jk <Esc>
+" Si mapeo block mayus a control -> NORMAL
 inoremap <C-l> <Esc>
 
-if has("gui_running")
-	let s:uname = system("uname")
-	if s:uname == "Darwin\n"
-		set guifont=Inconsolata\ for\ Powerline:h15
-	endif
-endif
+"Folding
+set foldmethod=indent
+set foldlevel=99
+inoremap <space> za
+
