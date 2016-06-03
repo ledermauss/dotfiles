@@ -23,6 +23,7 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'Buffergator'
 Plugin 'vimwiki'	
 " Now we can turn our filetype functionality back on
+call vundle#end()
 filetype plugin indent on
 
 syntax enable
@@ -61,7 +62,7 @@ set term=xterm-256color
 set termencoding=utf-8
 set laststatus=2
 set ruler
-" colorscheme solarized
+colorscheme solarized
 set background=dark
 " Si mapeo block mayus a control -> NORMAL
 inoremap <C-l> <Esc>
@@ -69,5 +70,5 @@ inoremap <C-l> <Esc>
 "Folding
 set foldmethod=indent
 set foldlevel=99
-inoremap <space> za
+noremap <space> za
 
