@@ -11,7 +11,9 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
 
 " To get plugins from Vim Scripts, you can reference the plugin
@@ -38,7 +40,7 @@ set noexpandtab
 
 " let macvim_skip_colorscheme=1
 " Para powerline:
-set guifont=Inconsolata\ for\ Powerline:h14
+set guifont=Inconsolata\ for\ Powerline:h13
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
@@ -57,6 +59,10 @@ inoremap <C-l> <Esc>
 if has("gui_running")
 	let s:uname = system("uname")
 	if s:uname == "Darwin\n"
-		set guifont=Inconsolata\ for\ Powerline:h15
+		set guifont=Inconsolata\ for\ Powerline:h13
 	endif
 endif
+
+" Para syntastic
+" let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
