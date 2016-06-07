@@ -16,6 +16,7 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'majutsushi/tagbar'
+Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
 
 " To get plugins from Vim Scripts, you can reference the plugin
@@ -43,6 +44,7 @@ set autoindent
 
 "Tagbar. Enseña las funciones del archivo como un ide
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :TagbarOpenAutoClose<CR>
 
 " PYTHON
 " au BufNewFile *.py
