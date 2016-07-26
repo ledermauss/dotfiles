@@ -10,34 +10,37 @@ call vundle#begin()
 " 'user/repository' format
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'craigemery/vim-autotag'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'tmhedberg/SimpylFold'
+" improves python folding
+Plugin 'tmhedberg/SimpylFold'   
 Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
-" Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
+Plugin 'davidhalter/jedi-vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
 
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
 " Plugin 'Buffergator'
-Plugin 'vimwiki'	
 " Now we can turn our filetype functionality back on
 call vundle#end()
+
 filetype plugin indent on
 
 syntax enable
 set hlsearch
 set incsearch
 
-"" Sobre tabulaciones
+"" Sobre tabulacione
 " Dar a toda TAB el valor de x espacios
-set tabstop=8
+set tabstop=4
 " ??????
 set softtabstop=0
 " Al indentar con >, usar x espacios
-set shiftwidth=8
+set shiftwidth=4
 " Tabulaciones como 1 caracter  o espacios (noexpandtab = caracter)
 set expandtab
 set autoindent
@@ -47,7 +50,8 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F9> :TagbarOpenAutoClose<CR>
 
 " PYTHON
-" au BufNewFile *.py
+" au Filetype .py
+"         nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
 "         \ set tabstop=4
 "         \ set softtabstop=4
 "         \ set shiftwidth=4
@@ -62,6 +66,7 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+" mostrar siempre la barra de powerline
 set laststatus=2
 set ruler
 colorscheme solarized
