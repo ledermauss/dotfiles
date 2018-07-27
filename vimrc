@@ -33,13 +33,13 @@ syntax enable
 set hlsearch
 set incsearch
 
-"" Sobre tabulaciones
+"" Sobre tabulacione
 " Dar a toda TAB el valor de x espacios
-set tabstop=8
+set tabstop=4
 " ??????
 set softtabstop=0
 " Al indentar con >, usar x espacios
-set shiftwidth=8
+set shiftwidth=4
 " Tabulaciones como 1 caracter  o espacios (noexpandtab = caracter)
 set expandtab
 set autoindent
@@ -47,9 +47,11 @@ set autoindent
 
 "Tagbar. Enseña las funciones del archivo como un ide
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :TagbarOpenAutoClose<CR>
 
 " PYTHON
-" au BufNewFile *.py
+" au Filetype .py
+"         nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
 "         \ set tabstop=4
 "         \ set softtabstop=4
 "         \ set shiftwidth=4
@@ -65,6 +67,7 @@ set textwidth=100 " breaks lines > 100 char
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+" mostrar siempre la barra de powerline
 set laststatus=2
 set ruler
 colorscheme solarized
