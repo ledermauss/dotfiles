@@ -11,6 +11,7 @@ Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'craigemery/vim-autotag'
@@ -22,7 +23,7 @@ Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
 " Plugin 'Buffergator'
-Plugin 'vimwiki'	
+" Plugin 'vimwiki'	
 " Now we can turn our filetype functionality back on
 call vundle#end()
 
@@ -43,6 +44,7 @@ set shiftwidth=8
 set expandtab
 set autoindent
 
+
 "Tagbar. Enseña las funciones del archivo como un ide
 nmap <F8> :TagbarToggle<CR>
 
@@ -59,6 +61,7 @@ let g:Powerline_symbols = 'fancy'
 let mapleader =","
 set encoding=utf-8
 set t_Co=256
+set textwidth=100 " breaks lines > 100 char
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
@@ -72,7 +75,7 @@ inoremap <C-l> <Esc>
 if has("gui_running")
 	let s:uname = system("uname")
 	if s:uname == "Darwin\n"
-		set guifont=Inconsolata\ for\ Powerline:h13
+		set guifont=Inconsolata\ for\ Powerline:h14
 	endif
 endif
 
@@ -84,3 +87,29 @@ let g:syntastic_enable_signs=1
 set foldmethod=indent
 set foldlevel=99
 noremap <space> za
+
+"80 characters red colouring
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" Spelling error correction. TODO: do only for latex
+" search with ]s, correct with z=
+" set spell - activates
+set spell spelllang=en_gb
+
+" Vim latex
+au BufEnter *.tex set autowrite
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats = 'pdf'
+let g:Tex_CompileRule_pdf = 'mkdir -p build && cp *.bib build && cd build && bibtex %:r && cd .. && pdflatex -output-directory=build -interaction=nonstopmode -file-line-error-style $* && mv build/$*.pdf .'
+" let g:Tex_GotoError = 0
+let g:vimtex_view_method = 'skim'
+if has('gui_running')
+  set grepprg=grep\ -nH\ $*
+  filetype indent on
+  let g:tex_flavor='latex'
+endif
