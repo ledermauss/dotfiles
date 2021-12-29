@@ -3,8 +3,9 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle
 " set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-call vundle#rc()
+call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
@@ -20,6 +21,8 @@ Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
 " by name as it appears on the site
 " Plugin 'Buffergator'
 Plugin 'vimwiki'	
+
+call vundle#end()
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
