@@ -30,6 +30,12 @@ filetype plugin indent on
 syntax enable
 set hlsearch
 set incsearch
+"ignore case, unless there are varying cases inside the search pattern
+set ignorecase
+set smartcase
+
+"both relative number and current line
+set number relativenumber
 
 "" Sobre tabulaciones
 " Dar a toda TAB el valor de x espacios
