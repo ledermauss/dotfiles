@@ -9,14 +9,12 @@ Plugin 'VundleVim/Vundle.vim'
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
-Plugin 'gmarik/vundle'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
-
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
 " Plugin 'Buffergator'
