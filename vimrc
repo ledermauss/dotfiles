@@ -39,11 +39,9 @@ set number relativenumber
 
 "" Sobre tabulaciones
 " Dar a toda TAB el valor de x espacios
-set tabstop=8
-" ??????
-set softtabstop=0
+set tabstop=4
 " Al indentar con >, usar x espacios
-set shiftwidth=8
+set shiftwidth=4
 " Tabulaciones como 1 caracter  o espacios (noexpandtab = caracter)
 set noexpandtab
 
