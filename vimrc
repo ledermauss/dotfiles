@@ -11,8 +11,9 @@ Plugin 'VundleVim/Vundle.vim'
 " 'user/repository' format
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'sheerun/vim-polyglot'
+Plugin 'vim-python/python-syntax'
 Plugin 'joshdick/onedark.vim'
+Plugin 'rakr/vim-one'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'Powerline/powerline',{'rtp': 'powerline/bindings/vim/'}
@@ -62,9 +63,11 @@ endif
 " Para syntastic
 " let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
+let g:python_highlight_all = 1
 
 "terminal colors
-colorscheme onedark
+colorscheme one
+set background=light
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
